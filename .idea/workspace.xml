@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3febada-01fd-486b-8364-150949632fcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/JobController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobCreate.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobEdit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobIndex.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobShow.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobCreate.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +162,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/admin" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -206,6 +209,8 @@
       <workItem from="1594830796254" duration="5370000" />
       <workItem from="1594842247113" duration="293000" />
       <workItem from="1594918306865" duration="7912000" />
+      <workItem from="1595095839268" duration="747000" />
+      <workItem from="1595151824320" duration="949000" />
     </task>
     <servers />
   </component>
@@ -222,6 +227,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -235,10 +241,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594836648535" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1594659826304">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595106526947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594659826304" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595106526947" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594564132317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

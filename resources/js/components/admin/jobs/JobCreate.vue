@@ -55,11 +55,6 @@
                 <div class="w-full px-3">
                     <label for="price" class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2">Paga</label>
                     <div class="mt-1 relative rounded-md shadow-sm">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none mr-4">
-                          <span class="text-gray-500 sm:text-sm sm:leading-5">
-                             $
-                           </span>
-                        </div>
                         <input
                             id="price"
                             class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
@@ -70,7 +65,6 @@
                                 aria-label="Currency"
                                 v-model="job.currency_id"
                                 class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded">
-                                <option selected value="" disabled>Valuta</option>
                                 <option v-for="cr in currencies" :key="cr.id" :value="cr.id">{{ cr.name}}</option>
                             </select>
                             <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
@@ -233,6 +227,7 @@
                 axios.get('/api/admin/currencies')
                     .then(res => {
                         this.currencies = res.data;
+                        this.job.currency_id = res.data[0].id
                     })
             },
             getCountries() {
