@@ -35,7 +35,7 @@
                 axios.post('/api/admin/countries', {
                     name: this.country.name,
                 }).then(res => {
-                    console.log(res)
+                    this.$router.push({name: 'CountryIndex'})
                 })
             }
         }

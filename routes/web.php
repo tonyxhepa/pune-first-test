@@ -30,3 +30,8 @@ Route::name('admin.')->group(function () {
         Route::get('/{any}', 'DefaultController@index')->where('any', '.*');
     });
 });
+
+Route::get('/jobs', 'Show\JobController@index');
+Route::get('/jobs/search', 'Show\JobController@search')->name('jobs.search');
+Route::get('/jobs/{job}', 'Show\JobController@show')->name('jobs.show');
+

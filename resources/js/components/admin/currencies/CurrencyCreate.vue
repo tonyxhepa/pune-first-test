@@ -13,7 +13,7 @@
                         placeholder="Name">
                 </div>
             </div>
-            <button @click.prevent="postCurrency" class="transition duration-500 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button @click.prevent="postCurrency" class="w-32 transition duration-500 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Create
             </button>
         </div>
@@ -35,7 +35,7 @@
                 axios.post('/api/admin/currencies', {
                     name: this.currency.name,
                 }).then(res => {
-                    console.log(res)
+                    this.$router.push({name: 'CurrencyIndex'})
                 })
             }
         }

@@ -1,32 +1,22 @@
 <template>
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8">
-            <div class="flex justify-between">
-                <div></div>
-                <div class=""><router-link class="p-2 bg-blue-200 rounded-lg font-bold" :to="{ name: 'CityCreate', params: {  countryId: this.$route.params.countryId}}">Create</router-link></div>
+            <div class="flex justify-between p-2 bg-blue-100 rounded-lg">
+                <div class=""><router-link class="p-2 bg-blue-200 rounded-lg font-bold" :to="{ name: 'CountryIndex'}">Go Back</router-link></div>
+                <div class=""><router-link class="p-2 bg-blue-200 rounded-lg font-bold" :to="{ name: 'CityCreate', params: {countryId: this.$route.params.countryId}}">Create</router-link></div>
             </div>
             <div class="my-2 flex sm:flex-row flex-col">
                 <div class="flex flex-row mb-1 sm:mb-0">
                     <div class="relative">
                         <select
+                            v-model="tableData.length"
+                            @change="getCities()"
                             class="appearance-none h-full rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                            <option>5</option>
-                            <option>10</option>
-                            <option>20</option>
-                        </select>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <select
-                            class="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
-                            <option>All</option>
-                            <option>Active</option>
-                            <option>Inactive</option>
+                            <option
+                                v-for="(records, index) in perPage"
+                                :key="index"
+                                :value="records"
+                            >{{records}}</option>
                         </select>
                         <div
                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -45,58 +35,52 @@
                         </svg>
                     </span>
                     <input placeholder="Search"
+                           v-model="tableData.search"
+                           @input="getCities()"
                            class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </div>
-
             </div>
-
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                    <table class="min-w-full leading-normal">
-                        <thead>
-                        <tr>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Name
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Action
-                            </th>
-                        </tr>
-                        </thead>
+                    <data-table :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy">
                         <tbody>
-                        <tr v-for="city in cities" :key="city.id">
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">{{ city.name}}
-                                </p>
+                        <tr
+                            v-for="cat in cities"
+                            :key="cat.id"
+                        >
+                            <td
+                                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                            >
+                                {{cat.id}}
+                            </td>
+                            <td
+                                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                            >
+                                {{ cat.name }}
                             </td>
 
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    <router-link class="p-2 bg-blue-200 rounded-lg" :to="{ name: 'CityEdit', params: {countryId: $route.params.countryId, cityId: city.id }}">Edit</router-link>
-                                    <button type="button" class="p-2 bg-red-500 ml-2 rounded-lg" @click="destroy(city.id)">Delete</button>
-                                </p>
+                            <td
+                                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                            >
+                                <div class="flex mr-2">
+                                    <button
+                                        class="flex-1 p-1 bg-blue-400 hover:bg-blue-600 mr-1"
+                                        @click="editCity(cat.id)"
+                                    >Edit</button>
+                                    <button
+                                        class="flex-1 p-1 bg-red-400 hover:bg-red-600"
+                                        @click="destroy(cat.id)"
+                                    >Delete</button>
+                                </div>
                             </td>
                         </tr>
                         </tbody>
-                    </table>
-                    <div
-                        class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        <span class="text-xs xs:text-sm text-gray-900">
-                            Showing 1 to 4 of 50 Entries
-                        </span>
-                        <div class="inline-flex mt-2 xs:mt-0">
-                            <button
-                                class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
-                                Prev
-                            </button>
-                            <button
-                                class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
-                                Next
-                            </button>
-                        </div>
-                    </div>
+                    </data-table>
+                    <pagination
+                        :pagination="pagination"
+                        @prev="getCities(pagination.prevPageUrl)"
+                        @next="getCities(pagination.nextPageUrl)"
+                    ></pagination>
                 </div>
             </div>
         </div>
@@ -104,22 +88,67 @@
 </template>
 
 <script>
+    import DataTable from "../../table/DataTable";
+    import Pagination from "../../table/Pagination";
     export default {
         name: "CityIndex",
+        components: {
+            DataTable,
+            Pagination
+        },
         data() {
+            let sortOrders = {};
+            let columns = [
+                { width: "auto", label: "Id", name: "id", isSortable: true },
+                { width: "auto", label: "Name", name: "name", isSortable: true },
+                { width: "auto", label: "Actions", name: "actions", isSortable: false }
+            ];
+            columns.forEach(column => {
+                sortOrders[column.name] = -1;
+            });
             return {
-                cities: []
+                cities: [],
+                columns: columns,
+                sortKey: "name",
+                sortOrders: sortOrders,
+                perPage: ["10", "20", "30"],
+                tableData: {
+                    draw: 0,
+                    length: 10,
+                    search: "",
+                    column: 1,
+                    dir: "desc"
+                },
+                pagination: {
+                    lastPage: "",
+                    currentPage: "",
+                    total: "",
+                    lastPageUrl: "",
+                    nextPageUrl: "",
+                    prevPageUrl: "",
+                    from: "",
+                    to: ""
+                }
             }
         },
         created() {
             this.getCities();
         },
         methods: {
-            getCities() {
-                axios.get('/api/admin/countries/'+ this.$route.params.countryId +'/cities')
+            getCities(baseUrl = `/api/admin/countries/`+ this.$route.params.countryId +`/all_cities`) {
+                this.tableData.draw++;
+                const _this = this;
+                axios.get(baseUrl, { params: this.tableData })
                     .then(res => {
-                        this.cities = res.data;
+                        let data = res.data;
+                        if (_this.tableData.draw == data.draw) {
+                            _this.cities = data.data.data;
+                            _this.configPagination(data.data.pagination);
+                        }
                     })
+            },
+            editCity(id) {
+                this.$router.push({name: 'CityEdit', params: {countryId: this.$route.params.countryId, CityId: id}})
             },
             destroy(id) {
                 axios.delete('/api/admin/countries/'+ this.$route.params.countryId +'/cities/'+ id)
@@ -128,7 +157,27 @@
                     }).catch(error => {
                     console.log(error)
                 })
-            }
+            },
+
+            configPagination(data) {
+                this.pagination.lastPage = data.last_page;
+                this.pagination.currentPage = data.current_page;
+                this.pagination.total = data.total;
+                this.pagination.nextPageUrl = data.next_page_url;
+                this.pagination.prevPageUrl = data.prev_page_url;
+                this.pagination.from = data.from;
+                this.pagination.to = data.to;
+            },
+            sortBy(key) {
+                this.sortKey = key;
+                this.sortOrders[key] = this.sortOrders[key] * -1;
+                this.tableData.column = this.getIndex(this.columns, "name", key);
+                this.tableData.dir = this.sortOrders[key] === 1 ? "asc" : "desc";
+                this.getCategories();
+            },
+            getIndex(array, key, value) {
+                return array.findIndex(i => i[key] == value);
+            },
         }
     }
 </script>

@@ -3,17 +3,37 @@
 namespace App\Http\Controllers\Admin\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Admin\CityCollection;
 use App\Models\City;
 use App\Models\Country;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
-    public function index(Country $country)
+    public function index()
     {
-       $cities = $country->cities;
-
+        $cities = City::all();
         return response()->json($cities);
+    }
+    public function all_cities(Request $request, Country $country)
+    {
+        $columns = ['id', 'name'];
+
+        $length = $request->input('length');
+        $column = $request->input('column'); //Index
+        $dir = $request->input('dir');
+        $searchValue = $request->input('search');
+
+        $query = City::where('country_id', $country->id)->orderBy($columns[$column], $dir);
+
+        if ($searchValue) {
+            $query->where(function($query) use ($searchValue) {
+                $query->where('name', 'like', '%' . $searchValue . '%');
+            });
+        }
+
+        $countries = new CityCollection($query->paginate($length));
+        return ['data' => $countries, 'draw' => $request->input('draw')];
     }
 
     public function store(Request $request, Country $country)

@@ -13,8 +13,8 @@
                         placeholder="Name">
                 </div>
             </div>
-            <button @click.prevent="postCity" class="transition duration-500 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Create
+            <button @click.prevent="postCity" class="w-32 transition duration-500 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Update
             </button>
         </div>
     </form>

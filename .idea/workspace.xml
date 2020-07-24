@@ -20,9 +20,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3febada-01fd-486b-8364-150949632fcf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Show/Api/JobController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Show/JobController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/CategoryResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/CityCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/CityResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/CountryCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/CountryResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/CurrencyCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/CurrencyResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/ExperienceCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/ExperienceResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/JobCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/JobResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/TypeCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Admin/TypeResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/query-builder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/Navbar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/table/DataTable.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/table/Pagination.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/views/jobs/JobList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cities/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/countries/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/experiences/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobs/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobs/search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/types/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pune.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pune.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CountryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CurrencyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/CurrencyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/ExperienceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/ExperienceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/JobController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/TypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Api/TypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/AdminIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/AdminIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/categories/CategoryEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/categories/CategoryEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/categories/CategoryIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/categories/CategoryIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/cities/CityCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/cities/CityCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/cities/CityEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/cities/CityEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/cities/CityIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/cities/CityIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/countries/CountryCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/countries/CountryCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/countries/CountryEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/countries/CountryEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/countries/CountryIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/countries/CountryIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/currencies/CurrencyCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/currencies/CurrencyCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/currencies/CurrencyEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/currencies/CurrencyEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/currencies/CurrencyIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/currencies/CurrencyIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/ecperiences/ExperienceCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/ecperiences/ExperienceCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/ecperiences/ExperienceEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/ecperiences/ExperienceEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/ecperiences/ExperienceIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/ecperiences/ExperienceIndex.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobEdit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/jobs/JobIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/types/TypeCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/types/TypeCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/types/TypeIndex.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/types/TypeIndex.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/inline/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/inline/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +111,7 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Blade" />
         <option value="Vue Single File Component" />
       </list>
     </option>
@@ -147,6 +221,9 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-query-builder" />
     </include_path>
   </component>
   <component name="ProjectId" id="1eYGdHZJtztegfvgbCF5Yfw8kcI" />
@@ -161,7 +238,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
@@ -175,6 +253,8 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -211,6 +291,14 @@
       <workItem from="1594918306865" duration="7912000" />
       <workItem from="1595095839268" duration="747000" />
       <workItem from="1595151824320" duration="949000" />
+      <workItem from="1595165529532" duration="71000" />
+      <workItem from="1595165615332" duration="9475000" />
+      <workItem from="1595182911617" duration="5940000" />
+      <workItem from="1595267658831" duration="7239000" />
+      <workItem from="1595348660372" duration="8648000" />
+      <workItem from="1595437570898" duration="4105000" />
+      <workItem from="1595521752954" duration="9466000" />
+      <workItem from="1595608221054" duration="354000" />
     </task>
     <servers />
   </component>
@@ -233,21 +321,56 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Deployment" timestamp="1595267765778">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1595267765778" />
+    <state x="765" y="200" key="#com.intellij.ide.util.MemberChooser" timestamp="1595535581927">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="200" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595535581927" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594755079631">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594755079631" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594836648535">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595350110610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594836648535" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595350110610" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1595106526947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595106526947" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1595361461081">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595361461081" />
+    <state x="845" y="170" key="ftp.server.browser" timestamp="1595267763527">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="845" y="170" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1595267763527" />
+    <state x="830" y="417" key="publish.login" timestamp="1595267724951">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="830" y="417" key="publish.login/0.0.1920.1040@0.0.1920.1040" timestamp="1595267724951" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1595362967312">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595362967312" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594564132317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594564132317" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/resources/js/components/admin/currencies/CurrencyIndex.vue</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

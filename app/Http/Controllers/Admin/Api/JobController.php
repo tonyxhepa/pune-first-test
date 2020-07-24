@@ -3,16 +3,31 @@
 namespace App\Http\Controllers\Admin\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Admin\JobCollection;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $jobs = Job::all();
+        $columns = ['id', 'title'];
 
-        return response()->json($jobs);
+        $length = $request->input('length');
+        $column = $request->input('column'); //Index
+        $dir = $request->input('dir');
+        $searchValue = $request->input('search');
+
+        $query = Job::orderBy($columns[$column], $dir);
+
+        if ($searchValue) {
+            $query->where(function($query) use ($searchValue) {
+                $query->where('title', 'like', '%' . $searchValue . '%');
+            });
+        }
+
+        $countries = new JobCollection($query->paginate($length));
+        return ['data' => $countries, 'draw' => $request->input('draw')];
     }
 
     public function store(Request $request)
@@ -34,5 +49,39 @@ class JobController extends Controller
         $job->active = $request->active;
         $job->save();
 
+    }
+
+    public function show($id)
+    {
+        $job = Job::findOrFail($id);
+
+        return response()->json($job);
+    }
+
+    public function update(Request $request, Job $job)
+    {
+
+        $job->update([
+           'company_id' => 1,
+           'logo'       => 'logo',
+           'category_id' => $request->category_id,
+           'job_type_id' => $request->job_type_id,
+           'country_id'  => $request->country_id,
+           'city_id'     => $request->city_id,
+           'title'       => $request->title,
+           'description' => $request->description,
+            'address'    => $request->address,
+            'amount' => $request->amount,
+            'currency_id' => $request->currency_id,
+            'experience_id' => $request->experience_id,
+            'cv_needed' => $request->cv_needed,
+             'active' => $request->active
+        ]);
+
+    }
+
+    public function destroy(Job $job)
+    {
+        $job->delete();
     }
 }

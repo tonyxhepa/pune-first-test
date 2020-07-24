@@ -1,8 +1,9 @@
-Vue.component('inline-dropdown', {
+Vue.component("inline-dropdown", {
     data() {
-        return{
-            isOpen: false
-        }
+        return {
+            isOpen: false,
+            mobileMenuOpen: false,
+            profileDropdown: false
+        };
     }
-
-})
+});

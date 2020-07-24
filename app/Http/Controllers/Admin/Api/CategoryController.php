@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Admin\CategoryCollection;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,31 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $cat = Category::all();
 
-        return response()->json($categories);
+        return response()->json($cat);
+    }
+    public function all_categories(Request $request)
+    {
+
+        $columns = ['id', 'name', 'active', 'updated_at'];
+
+        $length = $request->input('length');
+        $column = $request->input('column'); //Index
+        $dir = $request->input('dir');
+        $searchValue = $request->input('search');
+
+        $query = Category::orderBy($columns[$column], $dir);
+
+        if ($searchValue) {
+            $query->where(function($query) use ($searchValue) {
+                $query->where('name', 'like', '%' . $searchValue . '%');
+            });
+        }
+
+        $movies = new CategoryCollection($query->paginate($length));
+        return ['data' => $movies, 'draw' => $request->input('draw')];
+
     }
 
     public function store(Request $request)

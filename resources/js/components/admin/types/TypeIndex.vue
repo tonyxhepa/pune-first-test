@@ -9,24 +9,14 @@
                 <div class="flex flex-row mb-1 sm:mb-0">
                     <div class="relative">
                         <select
+                            v-model="tableData.length"
+                            @change="getTypes()"
                             class="appearance-none h-full rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                            <option>5</option>
-                            <option>10</option>
-                            <option>20</option>
-                        </select>
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <select
-                            class="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
-                            <option>All</option>
-                            <option>Active</option>
-                            <option>Inactive</option>
+                            <option
+                                v-for="(records, index) in perPage"
+                                :key="index"
+                                :value="records"
+                            >{{records}}</option>
                         </select>
                         <div
                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -45,74 +35,57 @@
                         </svg>
                     </span>
                     <input placeholder="Search"
+                           v-model="tableData.search"
+                           @input="getTypes()"
                            class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                 </div>
-
             </div>
-
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                    <table class="min-w-full leading-normal">
-                        <thead>
-                        <tr>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Name
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Slug
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Active
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                Action
-                            </th>
-                        </tr>
-                        </thead>
+                    <datatable :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy">
                         <tbody>
-                        <tr v-for="type in types" :key="type.id">
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">{{ type.name}}
-                                </p>
+                        <tr
+                            v-for="cat in types"
+                            :key="cat.id"
+                        >
+                            <td
+                                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                            >
+                                {{cat.id}}
                             </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <span
-                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                        <span aria-hidden
-                                              class="absolute inset-0 opacity-50 rounded-full"
-                                              :class="{'bg-green-200': type.active, 'bg-red-200': !type.active }"></span>
-                                        <span class="relative">Active</span>
-                                    </span>
+                            <td
+                                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                            >
+                                {{ cat.name }}
                             </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    <router-link class="p-2 bg-blue-200 rounded-lg" :to="{ name: 'TypeEdit', params: { typeId: type.id }}">Edit</router-link>
-                                    <button type="button" class="p-2 bg-red-500 ml-2 rounded-lg" @click="destroy(type.id)">Delete</button>
-                                </p>
+                            <td
+                                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                            >
+                                <span class="text-green-500 font-bold" v-if="cat.active">Active</span>
+                                <span class="text-red-500 font-bold" v-if="!cat.active">Inactive</span>
+                            </td>
+                            <td
+                                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
+                            >
+                                <div class="flex mr-2">
+                                    <button
+                                        class="flex-1 p-1 bg-blue-400 hover:bg-blue-600 mr-1"
+                                        @click="editType(cat.id)"
+                                    >Edit</button>
+                                    <button
+                                        class="flex-1 p-1 bg-red-400 hover:bg-red-600"
+                                        @click="destroy(cat.id)"
+                                    >Delete</button>
+                                </div>
                             </td>
                         </tr>
                         </tbody>
-                    </table>
-                    <div
-                        class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        <span class="text-xs xs:text-sm text-gray-900">
-                            Showing 1 to 4 of 50 Entries
-                        </span>
-                        <div class="inline-flex mt-2 xs:mt-0">
-                            <button
-                                class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
-                                Prev
-                            </button>
-                            <button
-                                class="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-r">
-                                Next
-                            </button>
-                        </div>
-                    </div>
+                    </datatable>
+                    <pagination
+                        :pagination="pagination"
+                        @prev="getTypes(pagination.prevPageUrl)"
+                        @next="getTypes(pagination.nextPageUrl)"
+                    ></pagination>
                 </div>
             </div>
         </div>
@@ -120,22 +93,85 @@
 </template>
 
 <script>
+    import Pagination from "../../table/Pagination";
+    import Datatable from "../../table/DataTable";
     export default {
         name: "TypeIndex",
+        components: {Datatable, Pagination},
         data() {
+            let sortOrders = {};
+            let columns = [
+                { width: "auto", label: "Id", name: "id", isSortable: true },
+                { width: "auto", label: "Name", name: "name", isSortable: true },
+                { width: "auto", label: "Active", name: "active", isSortable: true },
+                { width: "auto", label: "Actions", name: "actions", isSortable: false }
+            ];
+            columns.forEach(column => {
+                sortOrders[column.name] = -1;
+            });
             return {
-                types: []
+                types: [],
+                columns: columns,
+                sortKey: "name",
+                sortOrders: sortOrders,
+                perPage: ["10", "20", "30"],
+                tableData: {
+                    draw: 0,
+                    length: 10,
+                    search: "",
+                    column: 1,
+                    dir: "desc"
+                },
+                pagination: {
+                    lastPage: "",
+                    currentPage: "",
+                    total: "",
+                    lastPageUrl: "",
+                    nextPageUrl: "",
+                    prevPageUrl: "",
+                    from: "",
+                    to: ""
+                }
             }
         },
         created() {
             this.getTypes();
         },
         methods: {
-            getTypes() {
-                axios.get('/api/admin/types')
+            getTypes(baseUrl = `/api/admin/all_types`) {
+                this.tableData.draw++;
+                const _this = this;
+                axios.get(baseUrl, { params: this.tableData })
                     .then(res => {
-                        this.types = res.data;
+                        let data = res.data;
+                        if (_this.tableData.draw == data.draw) {
+                            _this.types = data.data.data;
+                            _this.configPagination(data.data.pagination);
+                        }
                     })
+            },
+            editType(id) {
+                this.$router.push({name: 'TypeEdit', params: {typeId: id}})
+            },
+
+            configPagination(data) {
+                this.pagination.lastPage = data.last_page;
+                this.pagination.currentPage = data.current_page;
+                this.pagination.total = data.total;
+                this.pagination.nextPageUrl = data.next_page_url;
+                this.pagination.prevPageUrl = data.prev_page_url;
+                this.pagination.from = data.from;
+                this.pagination.to = data.to;
+            },
+            sortBy(key) {
+                this.sortKey = key;
+                this.sortOrders[key] = this.sortOrders[key] * -1;
+                this.tableData.column = this.getIndex(this.columns, "name", key);
+                this.tableData.dir = this.sortOrders[key] === 1 ? "asc" : "desc";
+                this.getCategories();
+            },
+            getIndex(array, key, value) {
+                return array.findIndex(i => i[key] == value);
             },
             destroy(id) {
                 axios.delete('/api/admin/types/'+ id)

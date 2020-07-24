@@ -47,7 +47,7 @@
                     name: this.type.name,
                     active: this.type.active,
                 }).then(res => {
-                    console.log(res)
+                    this.$router.push({name: 'TypeIndex'})
                 })
             }
         }

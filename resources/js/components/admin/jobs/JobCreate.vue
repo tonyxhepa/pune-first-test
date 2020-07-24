@@ -152,7 +152,7 @@
                     </label>
                 </div>
             </div>
-            <button @click.prevent="postJob" class="transition duration-500 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button @click.prevent="postJob" class="w-32 transition duration-500 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Create
             </button>
         </div>
